@@ -1,13 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles.css">
-    <title>My Sokoban Game</title>
+    <title>JSokoban by Ivancho175</title>
+    <meta name="description" content="The classic Sokoban game">
+    <meta name="author" content="Ivancho175">
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 930px")> -->
 </head>
 <body>
+    <header>
+        <h1>My Sokoban Game</h1>
+        <p>by Ivancho175</p>
+        <div>
+            <input type="text" id="txtNombreUsuario" placeholder="Ingresa tu nombre" />
+            <button onclick="imprimirTablero()">Iniciar partida</button>
+        </div>
+    </header>
+    <main>
+        <table id="tblTablero"></table>
+    </main>
+    <footer>
+        <p>
+          **Éste es un portafolio falso, como ejemplo en un ejercicio de HTML y CSS para <a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp.org</a>. Todos los proyectos y datos de contacto que se dieron no son reales.
+        </p>
+        <p>
+          &copy; Created for
+          <a href="https://codepen.io/ivancho175/" target="_blank"
+            >@ivancho175</a> <i class="fab fa-free-code-camp"></i
+          >
+        </p>
+    </footer>
+    <script>
+        var MURO    = "MURO";
+        var SUELO   = "SUELO";
+        var TARGET  = "TARGET";
+        var GAMER  = "GAMER";
+        var gTablero = crearTablero();
+        //var obj = {nombre: "Laura", edad: 23};
+        //console.log(obj);
+
+        function crearTablero() {
+           var tablero = new Array(10);
+           for (var i=0; i<tablero.length; i++) {
+               tablero[i] = new Array(12);
+           }
+           for (var i=0; i<tablero.length; i++) {
+                for (var j=0; j<tablero[0].length; j++) {
+                    var celda = {type: SUELO, gameElement: null};
+                    if (i == 0 || i == tablero.length-1 || j == 0 || j == tablero[0].length-1) {
+                        celda.type = MURO;
+                    } tablero[i] [j] = celda;
+                }
+           }
+           tablero[3][7].type = TARGET;
+           tablero[5][3].gameElement = GAMER;
+           console.log(tablero);
+           return tablero;
+        }
+
+        function imprimirTablero() {
+            var tblTablero = document.getElementById('tblTablero');
+            var strHTML = '';
+            for (var i=0; i<gTablero.length; i++) {
+                strHTML += "<tr>";
+                for (var j=0; j<gTablero[0].length; j++) {
+                    var atualCelda = gTablero[i][j];
+                    var claseCelda;
+                    if (atualCelda.type == SUELO) {
+                        claseCelda = "suelo";
+                    } else if (atualCelda.type == MURO) {
+                        claseCelda = "muro";
+                    } else if (atualCelda.type == TARGET) {
+                        claseCelda = "target";
+                    }
+                    strHTML += "<td class='celda " + claseCelda + "'>";
+
+                        if (atualCelda.gameElement == GAMER) {
+                            strHTML += "<img src='https://i.ibb.co/K0xvN9K/guy-Back-Small.jpg'>";
+                        }
+
+                    strHTML += "</td>";
+                }
+                strHTML += "</tr>";
+            }
+            tblTablero.innerHTML = strHTML;
+        }
+        
+    </script>
     <script src="./index.js"></script>
 </body>
 </html>

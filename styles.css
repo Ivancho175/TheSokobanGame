@@ -1,0 +1,136 @@
+::-webkit-scrollbar {
+    background-color: var(--light-gray);
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--eerie-black);
+    border-radius: 15px;
+  }
+:root {
+    --eerie-black: #1A1A1A;
+    --light-gray: #CDCDCD;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5%;
+    font-family: 'DM-Sans', sans-serif;
+}
+body {
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5e7054eb-0052-4336-a10e-522776207cec/d26uzrq-5d38821b-5258-432e-8ef6-ac52f5d5c8ee.jpg/v1/fill/w_600,h_600,q_75,strp/night_sky_texture_by_desideriasp_stock_d26uzrq-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvNWU3MDU0ZWItMDA1Mi00MzM2LWExMGUtNTIyNzc2MjA3Y2VjXC9kMjZ1enJxLTVkMzg4MjFiLTUyNTgtNDMyZS04ZWY2LWFjNTJmNWQ1YzhlZS5qcGciLCJ3aWR0aCI6Ijw9NjAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.oGCbPUf24SplIGRnmu_y8ePbbUnwMFPfNzi0QWVQcuA');
+}
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    background: var(--eerie-black);
+    color: var(--light-gray);
+    text-align: center;
+    border-bottom: 1px solid #666871;
+}
+header h1 {
+    font-size: 3.4rem;
+    line-height: 2.6rem;
+
+}
+header h1:before {
+    content: ' ';
+    background-image: url('https://i.ibb.co/BzPvHn3/guy-Back-Large.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 20px;
+    height: auto;
+    margin-right: 15px;
+}
+header p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+header input {
+    width: 400px;
+    height: 30px;
+    border-radius: 25px;
+    padding: 0 15px;
+}
+header button {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: greenyellow;
+    font-weight: bold;
+    color: var(--eerie-black);
+    cursor: pointer;
+}
+header button:hover {
+    background-color: green;
+    color: var(--light-gray);
+}
+main {
+    color: var(--light-gray);
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px auto auto auto;
+    width: 600px;
+    overflow-y: scroll;
+}
+.celda {
+    width: 50px;
+    height: 50px;
+}
+.suelo {
+    background-image: url('https://i.ibb.co/7jXJXGQ/floor-Back-Small.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.muro {
+    background-image: url('https://i.ibb.co/h1nnPQL/wall-Back-Small.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.target {
+    background-image: url('https://i.ibb.co/S5kLXrP/goal-Back-Small.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  font-size: 1.5rem;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  color: var(--light-gray);
+  background-color: var(--eerie-black);
+  border-top: 1px solid #666871;
+}
+footer > p {
+  margin: 2rem;
+}
+footer i {
+  vertical-align: middle;
+}
+footer a {
+  color: #4367c4;
+}
+@media (max-width: 28.75em) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
